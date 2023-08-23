@@ -1,0 +1,87 @@
+.midias{
+    width: 10%;
+    height: 80vh;
+    margin-left: -25em;
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+    position: fixed;
+    z-index: 999;
+}
+
+.ig, .link, .git{
+    padding: 5px;
+    font-size: 2.8rem;
+    color: #0035b0;
+    transition: 2s ease;
+    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+}
+.ig{
+    color: deeppink;
+}
+.git{
+    color: rgb(15, 15, 15);
+}
+
+
+@keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+
+  @media (max-width: 528px) {
+    .midias{
+        width: 10%;
+        height: 80vh;
+        margin-left: 18%;
+        margin-top: 15em;
+        gap: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 999;
+    }
+    .ig, .link, .git{
+        padding: 5px;
+        font-size: 1.5rem;
+        transition: 2s ease;
+        -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+                animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+
+  }

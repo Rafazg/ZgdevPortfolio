@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
+
+.Acordion{
+  margin-top: 150px;
+}
+.p1, .p2{
+  font-size: 20px;
+  font-family: "Russo One", sans-serif;
+  animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 528px){
+.Acordion{
+    margin-top: 400px;
+}
+.p1, .p2{
+    font-size: 20px;
+    font-family: "Russo One", sans-serif;
+    animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+
+@keyframes text-focus-in {
+    0% {
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+}
