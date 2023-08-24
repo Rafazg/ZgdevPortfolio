@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
+
+.textInfoContainer {
+  position: absolute;
+  width: 520px;
+  height: 100px;
+  margin-top: 380px;
+  
+}
+
 @media (max-width: 528px) {
   .textInfoContainer {
     position: absolute;
-    width: 320px;
+    width: 220px;
     height: 400px;
-    
+    margin-top: 500px;
   }
+
+
   .text {
     animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     font-size: 1.4rem;

@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import About from './components/about/about';
+import Projects from './components/portfolio/projects';
+import Divider from './components/divider/divider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <Divider />
     <About />
+    <Divider />
+    <Projects />
   </React.StrictMode>
 );
 
