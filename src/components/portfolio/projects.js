@@ -3,10 +3,14 @@ import project01 from "../../images/Projeto.gif";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Grid from "@mui/material/Unstable_Grid2";
+import Typography from '@mui/material/Typography';
+
 
 function Projects() {
   return (
+
     <section className="projects">
+      <Typography  marginBottom={5} fontFamily={"monospace"} fontWeight={800} fontSize={55}>PROJECTS</Typography>
       <Grid
         container
         spacing={1}
