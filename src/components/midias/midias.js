@@ -3,7 +3,8 @@ import "../midias/midiasStyle.css";
 const Midia = () => {
   return (
     <div className="midias">
-      <a href="https://www.instagram.com/zg.software/" target="_blank">
+      <a href="https://www.instagram.com/zg.software/
+      " target="_blank">
         <ion-icon class="ig" name="logo-instagram"></ion-icon>
       </a>
 
