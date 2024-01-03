@@ -4,15 +4,3 @@
   height: 15vh;
 }
 
-.triangle::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 90px 90px 0 90px;
-  border-color: #05213e transparent transparent transparent;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%);
-}
