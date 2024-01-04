@@ -79,10 +79,7 @@ function Projects() {
               variant="contained"
               aria-label="Disabled elevation buttons"
             >
-              <Button href="https://github.com/Rafazg/node-api" target="_blank">
-                Code
-              </Button>
-              <Button href="" target="_blank">
+              <Button href="https://play.google.com/store/apps/details?id=com.YaraStudios.com.unity.template.mobile2D" target="_blank">
                 Play
               </Button>              
               
