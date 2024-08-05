@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "../portfolio/projects.css";
 import project01 from "../../images/Projeto.gif";
 import project02 from "../../images/Projeto02.gif";

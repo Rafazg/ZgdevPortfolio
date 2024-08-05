@@ -4,11 +4,11 @@ import TextInfo from "../textInfo/TextInfo";
 import Tools from "../technologies/tools";
 
 
-function Section () {
+export default function Section () {
   return (
     <section className="About">
         <div className="profile-container">
-            <img className="profile-image" src={imageProfile} alt="profile image"/>
+            <img className="profile-image" src={imageProfile} alt="profile"/>
         </div>
         <Tools />
         <TextInfo />
@@ -17,4 +17,3 @@ function Section () {
   );
 };
 
-export default Section;

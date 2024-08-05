@@ -5,7 +5,7 @@ const Tools = () => {
         <div className="tools">
             <img className='tool-1' width="76" height="76" src="https://img.icons8.com/color/96/c-sharp-logo.png" alt="c-sharp-logo"/>
             <img className='tool-2' width="76" height="76" src="https://img.icons8.com/color/96/python--v1.png" alt="python--v1"/>
-            <img className='tool-3' width="76" height="76" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript--v1"/>
+            <img className='tool-3' width="76" height="76" src="https://img.icons8.com/?size=100&id=22189&format=png&color=000000" alt="javascript--v1"/>
 
             <div className="tools-2">
             <img className='tool-4' width="76" height="76" src="https://img.icons8.com/plasticine/76/react.png" alt="react"/>

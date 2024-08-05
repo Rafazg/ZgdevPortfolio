@@ -2,18 +2,56 @@
 
 
 .textInfoContainer {
-  position: absolute;
-  width: 520px;
-  height: 100px;
-  margin-top: 380px;
-  
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  width: 100vw;
+  height: 70vh;
+  margin-top: 500px;
 }
 
+.skillOne{
+  text-align: center;
+  border: 5px solid rgb(39, 71, 119);
+  background-color: rgba(255, 255, 255, 0.678);
+  border-radius: 99px 28px 28px 28px;
+  width: 30%;
+  height: 80vh;
+  box-shadow: 2px 6px 4px 0px rgba(0,0,0,0.75);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+
+}
+.skillTwo{
+  text-align: center;
+  border: 5px solid rgb(39, 71, 119);
+  background-color: rgba(255, 255, 255, 0.678);
+  border-radius: 28px 28px 28px 28px;
+  box-shadow: 2px 6px 4px 0px rgba(0,0,0,0.75);
+  width: 30%;
+  height: 80vh;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+}
+.skillThree{
+  text-align: center;
+  border: 5px solid rgb(39, 71, 119);
+  background-color: rgba(255, 255, 255, 0.678);
+  border-radius: 28px 99px 28px 28px;
+  box-shadow: 2px 6px 4px 0px rgba(0,0,0,0.75);
+  width: 30%;
+  height: 80vh;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+}
 @media (max-width: 528px) {
   .textInfoContainer {
-    position: absolute;
-    width: 220px;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
     margin-top: 504px;
   }
 
