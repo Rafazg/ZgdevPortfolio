@@ -1,30 +1,35 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/alt-text */
-import "../textInfo/textInfo.css";
-import project03 from "../../images/Projeto03.gif";
-import * as React from "react";
-import IconButton from "@mui/material/IconButton";
-import WebIcon from "@mui/icons-material/Web";
-import SoftwareIcon from "@mui/icons-material/Code";
-import GameIcon from "@mui/icons-material/SportsEsports";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
-import { Grid } from "@mui/material";
-import Modal from "@mui/material/Modal";
+import React from "react";
+import {
+  IconButton,
+  Button,
+  ButtonGroup,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Grid,
+  Modal,
+  Accordion,
+  AccordionActions,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
+import {
+  Web as WebIcon,
+  Code as SoftwareIcon,
+  SportsEsports as GameIcon,
+  Image as ImageIcon,
+  ExpandMore as ExpandMoreIcon,
+} from "@mui/icons-material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { styled } from '@mui/material/styles';
-import { css } from '@emotion/react'; // Importação de css
-
-
-
-
+import { styled } from "@mui/material/styles";
+import { css } from "@emotion/react"; // Importação de css
+import "../textInfo/textInfo.css";
+import project03 from "../../images/Projeto03.gif";
 
 const TextInfo = () => {
   const [openWeb, setOpenWeb] = React.useState(false);
@@ -39,6 +44,39 @@ const TextInfo = () => {
 
   const handleOpenGame = () => setOpenGame(true);
   const handleCloseGame = () => setOpenGame(false);
+
+  const CustomAccordion = styled(Accordion)(({ theme }) => ({
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: 4,
+    boxShadow: 'none',
+    '&:before': {
+      display: 'none',
+    },
+    '&.Mui-expanded': {
+      margin: 'auto',
+    },
+  }));
+  
+  const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+    backgroundColor: theme.palette.background.paper,
+    borderBottom: `5px solid ${theme.palette.divider}`,
+    '& .MuiAccordionSummary-expandIcon': {
+      color: theme.palette.text.primary,
+    },
+  }));
+  
+  const CustomAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.secondary,
+    padding: theme.spacing(2),
+  }));
+  
+  const CustomAccordionActions = styled(AccordionActions)(({ theme }) => ({
+    padding: theme.spacing(1),
+    justifyContent: 'flex-end',
+  }));
+
+  
   return (
     <div className="textInfoContainer">
       <>
@@ -52,24 +90,68 @@ const TextInfo = () => {
             oferecendo experiências online atraentes e funcionais.
           </p>
           <TriggerButton type="button" onClick={handleOpenWeb}>
-        Saiba Mais
-      </TriggerButton>
-      <StyleModal
-        aria-labelledby="unstyled-modal-title"
-        aria-describedby="unstyled-modal-description"
-        open={openWeb}
-        onClose={handleCloseWeb}
-        slots={{ backdrop: StyledBackdrop }}
-      >
-        <ModalContent1 sx={{ width: 400 }}>
-          <h2 id="unstyled-modal-title" className="modal-title">
-          Aplicações Web
-          </h2>
-          <p id="unstyled-modal-description" className="modal-description">
+            Saiba Mais
+          </TriggerButton>
+          <StyleModal
+            aria-labelledby="unstyled-modal-title"
+            aria-describedby="unstyled-modal-description"
+            open={openWeb}
+            onClose={handleCloseWeb}
+            slots={{ backdrop: StyledBackdrop }}
+          >
+            <ModalContent1 sx={{ width: 400 }}>
+              <h2 id="unstyled-modal-title" className="modal-title">
+                Especializado em Aplicações
+              </h2>
 
-          </p>
-        </ModalContent1>
-      </StyleModal>
+              <CustomAccordion>
+      <CustomAccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1-content"
+        id="panel1-header"
+      >
+        Single Page Application
+      </CustomAccordionSummary>
+      <CustomAccordionDetails>
+        É uma aplicação web ou site que consiste de uma única página web com o objetivo de fornecer uma experiência do usuário similar à de um aplicativo desktop.
+      </CustomAccordionDetails>
+    </CustomAccordion>
+
+    <CustomAccordion>
+      <CustomAccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel2-content"
+        id="panel2-header"
+      >
+        Static Web Application
+      </CustomAccordionSummary>
+      <CustomAccordionDetails>
+        Aplicativo Web que pode ser entregue diretamente ao navegador de um usuário final sem qualquer alteração do lado do servidor do HTML, CSS ou Conteúdo JavaScript. Embora isso possa abranger sites muito planos e imutáveis, como um site corporativo, aplicativos da web estáticos geralmente se referem a sites ricos que utilizam tecnologias no navegador em vez de no servidor para entregar conteúdo dinâmico.
+      </CustomAccordionDetails>
+    </CustomAccordion>
+
+    <CustomAccordion defaultExpanded>
+      <CustomAccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel3-content"
+        id="panel3-header"
+      >
+        Dynamic Web Application
+      </CustomAccordionSummary>
+      <CustomAccordionDetails>
+        Aplicativo da Web dinâmico é projetado para responder à entrada do usuário e fornecer conteúdo em tempo real. Ao contrário dos aplicativos da web estáticos, que apresentam o mesmo conteúdo para todos os usuários, os aplicativos da web dinâmicos se adaptam com base nas interações e preferências do usuário.
+      </CustomAccordionDetails>
+      <CustomAccordionActions>
+        <Button onClick={() => console.log('Fechar')}>Fechar</Button>
+      </CustomAccordionActions>
+    </CustomAccordion>
+
+              <p
+                id="unstyled-modal-description"
+                className="modal-description"
+              ></p>
+            </ModalContent1>
+          </StyleModal>
         </div>
         <div className="skillTwo">
           <IconButton>
@@ -81,24 +163,24 @@ const TextInfo = () => {
             corporativos até ferramentas de produtividade.
           </p>
           <TriggerButton type="button" onClick={handleOpenSoftware}>
-        Saiba Mais
-      </TriggerButton>
-      <StyleModal
-        aria-labelledby="unstyled-modal-title"
-        aria-describedby="unstyled-modal-description"
-        open={openSoftware}
-        onClose={handleCloseSoftware}
-        slots={{ backdrop: StyledBackdrop }}
-      >
-        <ModalContent2 sx={{ width: 400 }}>
-          <h2 id="unstyled-modal-title" className="modal-title">
-            Tipos de Softwares
-          </h2>
-          <p id="unstyled-modal-description" className="modal-description">
-            Aliquid amet deserunt earum!
-          </p>
-        </ModalContent2>
-      </StyleModal>
+            Saiba Mais
+          </TriggerButton>
+          <StyleModal
+            aria-labelledby="unstyled-modal-title"
+            aria-describedby="unstyled-modal-description"
+            open={openSoftware}
+            onClose={handleCloseSoftware}
+            slots={{ backdrop: StyledBackdrop }}
+          >
+            <ModalContent2 sx={{ width: 400 }}>
+              <h2 id="unstyled-modal-title" className="modal-title">
+                Tipos de Softwares
+              </h2>
+              <p id="unstyled-modal-description" className="modal-description">
+                Aliquid amet deserunt earum!
+              </p>
+            </ModalContent2>
+          </StyleModal>
         </div>
         <div className="skillThree">
           <IconButton>
@@ -110,24 +192,24 @@ const TextInfo = () => {
             narrativas envolventes, mecânicas emocionantes e visuais cativantes.
           </p>
           <TriggerButton type="button" onClick={handleOpenGame}>
-        Saiba Mais
-      </TriggerButton>
-      <StyleModal
-        aria-labelledby="unstyled-modal-title"
-        aria-describedby="unstyled-modal-description"
-        open={openGame}
-        onClose={handleCloseGame}
-        slots={{ backdrop: StyledBackdrop }}
-      >
-        <ModalContent3 sx={{ width: 400 }}>
-          <h2 id="unstyled-modal-title" className="modal-title">
-          Engines utilizadas
-          </h2>
-          <p id="unstyled-modal-description" className="modal-description">
-            Aliquid amet deserunt earum!
-          </p>
-        </ModalContent3>
-      </StyleModal>
+            Saiba Mais
+          </TriggerButton>
+          <StyleModal
+            aria-labelledby="unstyled-modal-title"
+            aria-describedby="unstyled-modal-description"
+            open={openGame}
+            onClose={handleCloseGame}
+            slots={{ backdrop: StyledBackdrop }}
+          >
+            <ModalContent3 sx={{ width: 400 }}>
+              <h2 id="unstyled-modal-title" className="modal-title">
+                Engines utilizadas
+              </h2>
+              <p id="unstyled-modal-description" className="modal-description">
+                Aliquid amet deserunt earum!
+              </p>
+            </ModalContent3>
+          </StyleModal>
         </div>
       </>
     </div>
@@ -136,11 +218,12 @@ const TextInfo = () => {
 
 
 
+
 const Backdrop = React.forwardRef((props, ref) => {
   const { open, className, ...other } = props;
   return (
     <div
-      className={clsx({ 'base-Backdrop-open': open }, className)}
+      className={clsx({ "base-Backdrop-open": open }, className)}
       ref={ref}
       {...other}
     />
@@ -152,27 +235,26 @@ Backdrop.propTypes = {
   open: PropTypes.bool,
 };
 
-
 const blue = {
-  200: '#99CCFF',
-  300: '#66B2FF',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0066CC',
+  200: "#99CCFF",
+  300: "#66B2FF",
+  400: "#3399FF",
+  500: "#007FFF",
+  600: "#0072E5",
+  700: "#0066CC",
 };
 
 const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
+  50: "#F3F6F9",
+  100: "#E5EAF2",
+  200: "#DAE2ED",
+  300: "#C7D0DD",
+  400: "#B0B8C4",
+  500: "#9DA8B7",
+  600: "#6B7A90",
+  700: "#434D5B",
+  800: "#303740",
+  900: "#1C2025",
 };
 
 const StyleModal = styled(Modal)`
@@ -192,9 +274,9 @@ const StyledBackdrop = styled(Backdrop)`
   -webkit-tap-highlight-color: transparent;
 `;
 
-const ModalContent1 = styled('div')(
+const ModalContent1 = styled("div")(
   ({ theme }) => css`
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 500;
     text-align: start;
     position: relative;
@@ -202,13 +284,13 @@ const ModalContent1 = styled('div')(
     flex-direction: column;
     gap: 8px;
     overflow: hidden;
-    background-color: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+    background-color: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
     border-radius: 8px;
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+    border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
     box-shadow: 0 4px 12px
-      ${theme.palette.mode === 'dark' ? 'rgb(0 0 0 / 0.5)' : 'rgb(0 0 0 / 0.2)'};
+      ${theme.palette.mode === "dark" ? "rgb(0 0 0 / 0.5)" : "rgb(0 0 0 / 0.2)"};
     padding: 24px;
-    color: ${theme.palette.mode === 'dark' ? grey[50] : grey[900]};
+    color: ${theme.palette.mode === "dark" ? grey[50] : grey[900]};
 
     & .modal-title {
       margin: 0;
@@ -220,18 +302,18 @@ const ModalContent1 = styled('div')(
       margin: 0;
       line-height: 1.5rem;
       font-weight: 400;
-      color: ${theme.palette.mode === 'dark' ? grey[400] : grey[800]};
+      color: ${theme.palette.mode === "dark" ? grey[400] : grey[800]};
       margin-bottom: 4px;
     }
-  `,
+  `
 );
 
 const ModalContent2 = styled(ModalContent1)``;
 const ModalContent3 = styled(ModalContent1)``;
 
-const TriggerButton = styled('button')(
+const TriggerButton = styled("button")(
   ({ theme }) => css`
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -239,26 +321,26 @@ const TriggerButton = styled('button')(
     border-radius: 8px;
     transition: all 150ms ease;
     cursor: pointer;
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
+    background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+    border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+    color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
     &:hover {
-      background: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
-      border-color: ${theme.palette.mode === 'dark' ? grey[600] : grey[300]};
+      background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
+      border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
     }
 
     &:active {
-      background: ${theme.palette.mode === 'dark' ? grey[700] : grey[100]};
+      background: ${theme.palette.mode === "dark" ? grey[700] : grey[100]};
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 4px ${theme.palette.mode === 'dark' ? blue[300] : blue[200]};
+      box-shadow: 0 0 0 4px
+        ${theme.palette.mode === "dark" ? blue[300] : blue[200]};
       outline: none;
     }
-  `,
+  `
 );
 
 export default TextInfo;
-
