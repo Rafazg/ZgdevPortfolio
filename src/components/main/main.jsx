@@ -1,6 +1,11 @@
+/* eslint-disable react/jsx-no-undef */
 import React, { useEffect, useState } from "react";
+import DownloadIcon from "@mui/icons-material/Download";
+import Button from "@mui/material/Button";
 import "./style.css";
 import Midia from "../midias/midias";
+import pdfFile from '../../documents/claudeniro-rafaelCV.pdf';
+
 
 function TypingAnimation({ text }) {
   const [displayText, setDisplayText] = useState("");
@@ -23,9 +28,8 @@ function TypingAnimation({ text }) {
   return <h1 className="h1">{displayText}</h1>;
 }
 
-
-function TypingAnimation02({text}) {
-    const [displayText, setDisplayText] = useState("");
+function TypingAnimation02({ text }) {
+  const [displayText, setDisplayText] = useState("");
   const speed = 60; // Velocidade de digitação em milissegundos
 
   useEffect(() => {
@@ -43,11 +47,10 @@ function TypingAnimation02({text}) {
   }, [text]);
 
   return <h1 className="h2">{displayText}</h1>;
-    
 }
 
-function TypingAnimation03({text}) {
-    const [displayText, setDisplayText] = useState("");
+function TypingAnimation03({ text }) {
+  const [displayText, setDisplayText] = useState("");
   const speed = 60; // Velocidade de digitação em milissegundos
 
   useEffect(() => {
@@ -77,6 +80,11 @@ const Main = () => {
         <TypingAnimation03 text="DEEVELOPER" />
         <h4 className="h4">TECH-LOVIG STUDENT</h4>
       </div>
+      <a href={pdfFile} download='Rafael Claudeniro.pdf'>
+        <Button variant="contained">
+        <DownloadIcon fontSize="small" /> Downwload CV 
+        </Button>
+      </a>
     </main>
   );
 };

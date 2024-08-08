@@ -11,6 +11,11 @@
 }
 
 .skillOne{
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border: 5px solid rgb(39, 71, 119);
   background-color: rgba(255, 255, 255, 0.678);
@@ -20,9 +25,16 @@
   box-shadow: 2px 6px 4px 0px rgba(0,0,0,0.75);
   font-family: "IBM Plex Mono", monospace;
   font-size: 19px;
-
+}
+.skillOne ul {
+  background-color: #fff0;
 }
 .skillTwo{
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border: 5px solid rgb(39, 71, 119);
   background-color: rgba(255, 255, 255, 0.678);
@@ -34,6 +46,11 @@
   font-size: 19px;
 }
 .skillThree{
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border: 5px solid rgb(39, 71, 119);
   background-color: rgba(255, 255, 255, 0.678);
@@ -55,6 +72,10 @@
     margin-top: 504px;
   }
 
+  .skillOne, .skillTwo, .skillThree{
+    width: 100%;
+    height: 100vh;
+  }
 
   .text {
     animation: text-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
