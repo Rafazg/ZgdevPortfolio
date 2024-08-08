@@ -17,7 +17,7 @@ function Projects() {
         fontWeight={800}
         fontSize={55}
       >
-        PROJECTS
+        PROJETOS
       </Typography>
       <Grid
         container

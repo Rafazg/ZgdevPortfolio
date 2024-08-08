@@ -25,12 +25,14 @@
   .main-container button:hover{
     background-color: rgb(30, 79, 238);
     color: #ffffff;
-    transition: 2s ease;
+    transition: 0.2s ease-in;
     -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	        animation: heartbeat 1.5s ease-in-out infinite both;
-
   }
 
+  .main-container .buttonLink{
+    margin-top: 150px;
+  }
   @keyframes heartbeat {
     from {
       -webkit-transform: scale(1);

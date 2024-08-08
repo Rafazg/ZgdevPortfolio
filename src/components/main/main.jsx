@@ -80,7 +80,7 @@ const Main = () => {
         <TypingAnimation03 text="DEEVELOPER" />
         <h4 className="h4">TECH-LOVIG STUDENT</h4>
       </div>
-      <a href={pdfFile} download='Rafael Claudeniro.pdf'>
+      <a className="buttonLink" href={pdfFile} download='Rafael Claudeniro.pdf'>
         <Button variant="contained">
         <DownloadIcon fontSize="small" /> Downwload CV 
         </Button>
