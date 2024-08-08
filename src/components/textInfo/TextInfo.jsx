@@ -24,10 +24,21 @@ import { css } from '@emotion/react'; // Importação de css
 
 
 
+
+
 const TextInfo = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openWeb, setOpenWeb] = React.useState(false);
+  const [openSoftware, setOpenSoftware] = React.useState(false);
+  const [openGame, setOpenGame] = React.useState(false);
+
+  const handleOpenWeb = () => setOpenWeb(true);
+  const handleCloseWeb = () => setOpenWeb(false);
+
+  const handleOpenSoftware = () => setOpenSoftware(true);
+  const handleCloseSoftware = () => setOpenSoftware(false);
+
+  const handleOpenGame = () => setOpenGame(true);
+  const handleCloseGame = () => setOpenGame(false);
   return (
     <div className="textInfoContainer">
       <>
@@ -40,24 +51,24 @@ const TextInfo = () => {
             Projeto e desenvolvo plataformas web responsivas e intuitivas,
             oferecendo experiências online atraentes e funcionais.
           </p>
-          <TriggerButton type="button" onClick={handleOpen}>
+          <TriggerButton type="button" onClick={handleOpenWeb}>
         Saiba Mais
       </TriggerButton>
       <StyleModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={openWeb}
+        onClose={handleCloseWeb}
         slots={{ backdrop: StyledBackdrop }}
       >
-        <ModalContent sx={{ width: 400 }}>
+        <ModalContent1 sx={{ width: 400 }}>
           <h2 id="unstyled-modal-title" className="modal-title">
-            Text in a modal
+          Aplicações Web
           </h2>
           <p id="unstyled-modal-description" className="modal-description">
-            Aliquid amet deserunt earum!
+
           </p>
-        </ModalContent>
+        </ModalContent1>
       </StyleModal>
         </div>
         <div className="skillTwo">
@@ -69,24 +80,24 @@ const TextInfo = () => {
             Crio soluções tecnológicas sob medida, desde aplicativos
             corporativos até ferramentas de produtividade.
           </p>
-          <TriggerButton type="button" onClick={handleOpen}>
+          <TriggerButton type="button" onClick={handleOpenSoftware}>
         Saiba Mais
       </TriggerButton>
       <StyleModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={openSoftware}
+        onClose={handleCloseSoftware}
         slots={{ backdrop: StyledBackdrop }}
       >
-        <ModalContent sx={{ width: 400 }}>
+        <ModalContent2 sx={{ width: 400 }}>
           <h2 id="unstyled-modal-title" className="modal-title">
-            Text in a modal
+            Tipos de Softwares
           </h2>
           <p id="unstyled-modal-description" className="modal-description">
             Aliquid amet deserunt earum!
           </p>
-        </ModalContent>
+        </ModalContent2>
       </StyleModal>
         </div>
         <div className="skillThree">
@@ -98,30 +109,32 @@ const TextInfo = () => {
             Transformo conceitos criativos em realidade virtual, trazendo
             narrativas envolventes, mecânicas emocionantes e visuais cativantes.
           </p>
-          <TriggerButton type="button" onClick={handleOpen}>
+          <TriggerButton type="button" onClick={handleOpenGame}>
         Saiba Mais
       </TriggerButton>
       <StyleModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={openGame}
+        onClose={handleCloseGame}
         slots={{ backdrop: StyledBackdrop }}
       >
-        <ModalContent sx={{ width: 400 }}>
+        <ModalContent3 sx={{ width: 400 }}>
           <h2 id="unstyled-modal-title" className="modal-title">
-            Text in a modal
+          Engines utilizadas
           </h2>
           <p id="unstyled-modal-description" className="modal-description">
             Aliquid amet deserunt earum!
           </p>
-        </ModalContent>
+        </ModalContent3>
       </StyleModal>
         </div>
       </>
     </div>
   );
 };
+
+
 
 const Backdrop = React.forwardRef((props, ref) => {
   const { open, className, ...other } = props;
@@ -179,7 +192,7 @@ const StyledBackdrop = styled(Backdrop)`
   -webkit-tap-highlight-color: transparent;
 `;
 
-const ModalContent = styled('div')(
+const ModalContent1 = styled('div')(
   ({ theme }) => css`
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
@@ -212,6 +225,9 @@ const ModalContent = styled('div')(
     }
   `,
 );
+
+const ModalContent2 = styled(ModalContent1)``;
+const ModalContent3 = styled(ModalContent1)``;
 
 const TriggerButton = styled('button')(
   ({ theme }) => css`
