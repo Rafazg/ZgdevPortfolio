@@ -41,7 +41,7 @@ const TextInfo = () => {
             oferecendo experiências online atraentes e funcionais.
           </p>
           <TriggerButton type="button" onClick={handleOpen}>
-        Open modal
+        Saiba Mais
       </TriggerButton>
       <StyleModal
         aria-labelledby="unstyled-modal-title"
@@ -69,13 +69,25 @@ const TextInfo = () => {
             Crio soluções tecnológicas sob medida, desde aplicativos
             corporativos até ferramentas de produtividade.
           </p>
-          <Button
-            variant="contained"
-            color="primary"
-            href="#learn-more-software"
-          >
-            Saiba Mais
-          </Button>
+          <TriggerButton type="button" onClick={handleOpen}>
+        Saiba Mais
+      </TriggerButton>
+      <StyleModal
+        aria-labelledby="unstyled-modal-title"
+        aria-describedby="unstyled-modal-description"
+        open={open}
+        onClose={handleClose}
+        slots={{ backdrop: StyledBackdrop }}
+      >
+        <ModalContent sx={{ width: 400 }}>
+          <h2 id="unstyled-modal-title" className="modal-title">
+            Text in a modal
+          </h2>
+          <p id="unstyled-modal-description" className="modal-description">
+            Aliquid amet deserunt earum!
+          </p>
+        </ModalContent>
+      </StyleModal>
         </div>
         <div className="skillThree">
           <IconButton>
@@ -86,9 +98,25 @@ const TextInfo = () => {
             Transformo conceitos criativos em realidade virtual, trazendo
             narrativas envolventes, mecânicas emocionantes e visuais cativantes.
           </p>
-          <Button variant="contained" color="primary" href="#learn-more-web">
-            Saiba Mais
-          </Button>
+          <TriggerButton type="button" onClick={handleOpen}>
+        Saiba Mais
+      </TriggerButton>
+      <StyleModal
+        aria-labelledby="unstyled-modal-title"
+        aria-describedby="unstyled-modal-description"
+        open={open}
+        onClose={handleClose}
+        slots={{ backdrop: StyledBackdrop }}
+      >
+        <ModalContent sx={{ width: 400 }}>
+          <h2 id="unstyled-modal-title" className="modal-title">
+            Text in a modal
+          </h2>
+          <p id="unstyled-modal-description" className="modal-description">
+            Aliquid amet deserunt earum!
+          </p>
+        </ModalContent>
+      </StyleModal>
         </div>
       </>
     </div>
