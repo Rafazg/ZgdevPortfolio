@@ -4,9 +4,10 @@
 
   .main-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Usar viewport height para ocupar toda a tela verticalmente */
+    height: 105vh; /* Usar viewport height para ocupar toda a tela verticalmente */
     background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,1) 57%, rgba(210,217,245,1) 94%, rgba(198,204,255,1) 100%);
   }
@@ -31,7 +32,7 @@
   }
 
   .main-container .buttonLink{
-    margin-top: 150px;
+    margin-top: 250px;
   }
   @keyframes heartbeat {
     from {
@@ -116,6 +117,11 @@
     height: 90vh;
     
   }
+
+  .main-container .buttonLink{
+    margin-top: 355px;
+  }
+
   .title {
     position: absolute;
     display: flex;

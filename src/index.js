@@ -14,6 +14,7 @@ root.render(
     <App />
     <Divider />
     <About />
+    <Divider />
     <Projects />
   </React.StrictMode>
 );

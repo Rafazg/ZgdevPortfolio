@@ -8,6 +8,8 @@
   width: 100%;
   height: 180vh;
   overflow: hidden;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 57%, rgba(210,217,245,1) 94%, rgba(198,204,255,1) 100%);
 }
 
 

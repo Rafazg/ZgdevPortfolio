@@ -31,6 +31,7 @@ import { css } from "@emotion/react"; // Importação de css
 import "../textInfo/textInfo.css";
 import project03 from "../../images/Projeto03.gif";
 
+
 const TextInfo = () => {
   const [openWeb, setOpenWeb] = React.useState(false);
   const [openSoftware, setOpenSoftware] = React.useState(false);
