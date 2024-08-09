@@ -48,35 +48,34 @@ const TextInfo = () => {
   const CustomAccordion = styled(Accordion)(({ theme }) => ({
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: 4,
-    boxShadow: 'none',
-    '&:before': {
-      display: 'none',
+    boxShadow: "none",
+    "&:before": {
+      display: "none",
     },
-    '&.Mui-expanded': {
-      margin: 'auto',
+    "&.Mui-expanded": {
+      margin: "auto",
     },
   }));
-  
+
   const CustomAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
     borderBottom: `5px solid ${theme.palette.divider}`,
-    '& .MuiAccordionSummary-expandIcon': {
+    "& .MuiAccordionSummary-expandIcon": {
       color: theme.palette.text.primary,
     },
   }));
-  
+
   const CustomAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.secondary,
     padding: theme.spacing(2),
   }));
-  
+
   const CustomAccordionActions = styled(AccordionActions)(({ theme }) => ({
     padding: theme.spacing(1),
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   }));
 
-  
   return (
     <div className="textInfoContainer">
       <>
@@ -105,46 +104,59 @@ const TextInfo = () => {
               </h2>
 
               <CustomAccordion>
-      <CustomAccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1-content"
-        id="panel1-header"
-      >
-        Single Page Application
-      </CustomAccordionSummary>
-      <CustomAccordionDetails>
-        É uma aplicação web ou site que consiste de uma única página web com o objetivo de fornecer uma experiência do usuário similar à de um aplicativo desktop.
-      </CustomAccordionDetails>
-    </CustomAccordion>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Single Page Application
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  É uma aplicação web ou site que consiste de uma única página
+                  web com o objetivo de fornecer uma experiência do usuário
+                  similar à de um aplicativo desktop.
+                </CustomAccordionDetails>
+              </CustomAccordion>
 
-    <CustomAccordion>
-      <CustomAccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel2-content"
-        id="panel2-header"
-      >
-        Static Web Application
-      </CustomAccordionSummary>
-      <CustomAccordionDetails>
-        Aplicativo Web que pode ser entregue diretamente ao navegador de um usuário final sem qualquer alteração do lado do servidor do HTML, CSS ou Conteúdo JavaScript. Embora isso possa abranger sites muito planos e imutáveis, como um site corporativo, aplicativos da web estáticos geralmente se referem a sites ricos que utilizam tecnologias no navegador em vez de no servidor para entregar conteúdo dinâmico.
-      </CustomAccordionDetails>
-    </CustomAccordion>
+              <CustomAccordion>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2-content"
+                  id="panel2-header"
+                >
+                  Static Web Application
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  Aplicativo Web que pode ser entregue diretamente ao navegador
+                  de um usuário final sem qualquer alteração do lado do servidor
+                  do HTML, CSS ou Conteúdo JavaScript. Embora isso possa
+                  abranger sites muito planos e imutáveis, como um site
+                  corporativo, aplicativos da web estáticos geralmente se
+                  referem a sites ricos que utilizam tecnologias no navegador em
+                  vez de no servidor para entregar conteúdo dinâmico.
+                </CustomAccordionDetails>
+              </CustomAccordion>
 
-    <CustomAccordion defaultExpanded>
-      <CustomAccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel3-content"
-        id="panel3-header"
-      >
-        Dynamic Web Application
-      </CustomAccordionSummary>
-      <CustomAccordionDetails>
-        Aplicativo da Web dinâmico é projetado para responder à entrada do usuário e fornecer conteúdo em tempo real. Ao contrário dos aplicativos da web estáticos, que apresentam o mesmo conteúdo para todos os usuários, os aplicativos da web dinâmicos se adaptam com base nas interações e preferências do usuário.
-      </CustomAccordionDetails>
-      <CustomAccordionActions>
-        <Button onClick={() => console.log('Fechar')}>Fechar</Button>
-      </CustomAccordionActions>
-    </CustomAccordion>
+              <CustomAccordion defaultExpanded>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3-content"
+                  id="panel3-header"
+                >
+                  Dynamic Web Application
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  Aplicativo da Web dinâmico é projetado para responder à
+                  entrada do usuário e fornecer conteúdo em tempo real. Ao
+                  contrário dos aplicativos da web estáticos, que apresentam o
+                  mesmo conteúdo para todos os usuários, os aplicativos da web
+                  dinâmicos se adaptam com base nas interações e preferências do
+                  usuário.
+                </CustomAccordionDetails>
+                <CustomAccordionActions>
+                  <Button onClick={() => console.log("Fechar")}>Fechar</Button>
+                </CustomAccordionActions>
+              </CustomAccordion>
 
               <p
                 id="unstyled-modal-description"
@@ -176,9 +188,39 @@ const TextInfo = () => {
               <h2 id="unstyled-modal-title" className="modal-title">
                 Tipos de Softwares
               </h2>
-              <p id="unstyled-modal-description" className="modal-description">
-                Aliquid amet deserunt earum!
-              </p>
+              <p
+                id="unstyled-modal-description"
+                className="modal-description"
+              ></p>
+              <CustomAccordion>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Software de aplicativo
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  programas stand-alone (que rodam ser internet ou outros
+                  recursos em rede) que resolve um problema de negócio
+                  específico.
+                </CustomAccordionDetails>
+              </CustomAccordion>
+
+              <CustomAccordion>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2-content"
+                  id="panel2-header"
+                >
+                  Software embutido
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  programas contidos dentro de um produto ou sistema e usados
+                  para controlar o equipamento e fornecer funcionalidades ao
+                  usuário final.
+                </CustomAccordionDetails>
+              </CustomAccordion>
             </ModalContent2>
           </StyleModal>
         </div>
@@ -203,11 +245,23 @@ const TextInfo = () => {
           >
             <ModalContent3 sx={{ width: 400 }}>
               <h2 id="unstyled-modal-title" className="modal-title">
-                Engines utilizadas
+                Engine utilizada
               </h2>
-              <p id="unstyled-modal-description" className="modal-description">
-                Aliquid amet deserunt earum!
-              </p>
+              <CustomAccordion>
+                <CustomAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  Unity
+                </CustomAccordionSummary>
+                <CustomAccordionDetails>
+                  O Unity oferece aos usuários a capacidade de criar jogos e
+                  experiências em 2D e 3D, e o mecanismo oferece uma API de
+                  script primária em C# usando Mono, tanto para o editor do
+                  Unity na forma de plug-ins quanto para os próprios jogos
+                </CustomAccordionDetails>
+              </CustomAccordion>
             </ModalContent3>
           </StyleModal>
         </div>
@@ -215,9 +269,6 @@ const TextInfo = () => {
     </div>
   );
 };
-
-
-
 
 const Backdrop = React.forwardRef((props, ref) => {
   const { open, className, ...other } = props;
