@@ -2,102 +2,225 @@
 
 
 
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 105vh; /* Usar viewport height para ocupar toda a tela verticalmente */
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 57%, rgba(210,217,245,1) 94%, rgba(198,204,255,1) 100%);
-  }
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(240,242,255,1) 50%, rgba(210,217,245,1) 100%);
+  overflow-x: hidden;
+  padding: 2rem 0;
+}
 
-  .main-container button{
-    margin-top: 20px;
-    padding: 10px 30px;
-    background-color: #ffffff;
-    color: #000000;
-    border: 2px solid dodgerblue;
-    border-radius: 5px;
-    cursor: pointer;
-    gap: 5px;
-    
-  }
-  .main-container button:hover{
-    background-color: rgb(30, 79, 238);
-    color: #ffffff;
-    transition: 0.2s ease-in;
-    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-	        animation: heartbeat 1.5s ease-in-out infinite both;
-  }
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100%;
+  position: relative;
+}
 
-  .main-container .buttonLink{
-    margin-top: 250px;
-  }
-  @keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    10% {
-      -webkit-transform: scale(0.91);
-              transform: scale(0.91);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.98);
-              transform: scale(0.98);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.87);
-              transform: scale(0.87);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-  }
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
+.h1 {
+  color: #333;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
 
-  .title {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: "IBM Plex Mono", monospace;
-    top: 200px;
+.h2 {
+  color: #3f51b5;
+  text-transform: uppercase;
+  letter-spacing: 1.2rem;
+  font-size: 3.2rem;
+  margin-top: -0.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #3f51b5, #7986cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h3 {
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+  font-size: 2.8rem;
+  margin-top: -1rem;
+  font-weight: 600;
+}
+
+.h4 {
+  color: #666;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* Button Styles */
+.buttonLink {
+  margin-top: 2rem;
+  text-decoration: none;
+}
+
+.main-container button {
+  padding: 0.8rem 2rem;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.3);
+  transition: all 0.3s ease;
+}
+
+.main-container button:hover {
+  background-color: #303f9f;
+  box-shadow: 0 6px 15px rgba(63, 81, 181, 0.4);
+  transform: translateY(-2px);
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Timeline Section */
+.timeline-section {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.timeline-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3f51b5, #7986cb);
+  border-radius: 3px;
+}
+
+.timeline-paper {
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-paper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-description {
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+/* Animations */
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
   }
-  .h1{
-    color: #000000;
-    text-transform: uppercase;
-    font-size: 1.9rem;
-    letter-spacing: 10;
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
   }
-  .h2{
-    color: #000000;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-    font-size: 3rem;
-    margin-top: -8px;   
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
   }
-  .h3{
-    color: #000000;
-    text-transform: uppercase;
-    letter-spacing: 15px;
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .h2 {
     font-size: 2.5rem;
-    margin-top: -20px;
+    letter-spacing: 0.8rem;
   }
+  
+  .h3 {
+    font-size: 2.2rem;
+    letter-spacing: 0.6rem;
+  }
+  
+  .timeline-section {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+  }
+  
+  .h2 {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .h3 {
+    font-size: 1.8rem;
+    letter-spacing: 0.4rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
   .h4{
     color: #000000;
     text-transform: uppercase;

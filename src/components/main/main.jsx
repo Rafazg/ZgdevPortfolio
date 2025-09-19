@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import Button from "@mui/material/Button";
 import "./style.css";
@@ -14,188 +14,172 @@ import {
   TimelineDot,
   TimelineOppositeContent,
 } from '@mui/lab';
-import { Typography, Paper, Box } from '@mui/material';
-import WorkIcon from '@mui/icons-material/Work'; // Ícone opcional para representar trabalho
-import SchoolIcon from '@mui/icons-material/School'; // Ícone opcional para representar educação
+import { Typography, Paper, Box, Tooltip, Fade } from '@mui/material';
+import WorkIcon from '@mui/icons-material/Work';
+import SchoolIcon from '@mui/icons-material/School';
+import CodeIcon from '@mui/icons-material/Code';
 
-
-
-function TypingAnimation({ text }) {
+// Componente de animação de digitação reutilizável
+function TypingAnimation({ text, className, delay = 0 }) {
   const [displayText, setDisplayText] = useState("");
+  const [startAnimation, setStartAnimation] = useState(false);
   const speed = 60; // Velocidade de digitação em milissegundos
+  const indexRef = useRef(0);
+  const textRef = useRef(text);
 
+  // Efeito para iniciar a animação após o delay
   useEffect(() => {
-    let i = 0;
+    const timer = setTimeout(() => {
+      setStartAnimation(true);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      indexRef.current = 0;
+      setDisplayText("");
+    };
+  }, [delay, text]);
+
+  // Efeito para a animação de digitação
+  useEffect(() => {
+    if (!startAnimation) return;
+    
+    textRef.current = text; // Atualiza a referência do texto
+    
     const typeInterval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayText((prevText) => prevText + text.charAt(i));
-        i++;
+      if (indexRef.current < textRef.current.length) {
+        setDisplayText(prev => prev + textRef.current.charAt(indexRef.current));
+        indexRef.current += 1;
       } else {
         clearInterval(typeInterval);
       }
     }, speed);
 
     return () => clearInterval(typeInterval);
-  }, [text]);
+  }, [startAnimation, speed, text]);
 
-  return <h1 className="h1">{displayText}</h1>;
+  return <h1 className={className}>{displayText}</h1>;
 }
 
-function TypingAnimation02({ text }) {
-  const [displayText, setDisplayText] = useState("");
-  const speed = 60; // Velocidade de digitação em milissegundos
-
-  useEffect(() => {
-    let i = 0;
-    const typeInterval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayText((prevText) => prevText + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(typeInterval);
-      }
-    }, speed);
-
-    return () => clearInterval(typeInterval);
-  }, [text]);
-
-  return <h1 className="h2">{displayText}</h1>;
-}
-
-
-
-function TypingAnimation03({ text }) {
-  const [displayText, setDisplayText] = useState("");
-  const speed = 60; // Velocidade de digitação em milissegundos
-
-  useEffect(() => {
-    let i = 0;
-    const typeInterval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayText((prevText) => prevText + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(typeInterval);
-      }
-    }, speed);
-
-    return () => clearInterval(typeInterval);
-  }, [text]);
-
-  return <h1 className="h3">{displayText}</h1>;
-}
-
-
+// Dados de experiência
 const experiences = [
   {
     date: 'Maio de 2024',
     title: 'Desenvolvedor Autônomo',
     description: 'Trabalhando em projetos freelance e colaborativos.',
     icon: <WorkIcon />,
+    color: '#3f51b5'
   },
   {
     date: 'Janeiro de 2023',
     title: 'Desenvolvedor Web',
     description: 'Atuação em desenvolvimento frontend e backend.',
-    icon: <WorkIcon />,
+    icon: <CodeIcon />,
+    color: '#4caf50'
   },
   {
     date: 'Janeiro de 2022',
     title: 'Voluntário de Educação',
     description: 'Participação em programas de ensino comunitário.',
     icon: <SchoolIcon />,
+    color: '#ff9800'
   },
   {
     date: 'Junho de 2021',
     title: 'Técnico de Suporte em TI',
     description: 'Fornecimento de suporte técnico e manutenção.',
     icon: <WorkIcon />,
+    color: '#f44336'
   },
 ];
 
 const Main = () => {
+  const timelineRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (timelineRef.current) {
+      observer.observe(timelineRef.current);
+    }
+
+    return () => {
+      if (timelineRef.current) {
+        observer.unobserve(timelineRef.current);
+      }
+    };
+  }, []);
+
   return (
     <main className="main-container">
-      <div className="title">
-        <Midia />
-        <TypingAnimation text="I 'AM RAFAEL" />
-        <TypingAnimation02 text="FRRONT-END" />
-        <TypingAnimation03 text="DEEVELOPER" />
-        <h4 className="h4">TECH-LOVIG STUDENT</h4>
+      <div className="hero-section">
+        <div className="title">
+          <Midia />
+          <TypingAnimation text="I'M RAFAEL" className="h1" />
+          <TypingAnimation text="FFULLSTACK" className="h2" delay={1000} />
+          <TypingAnimation text="DDEVELOPER" className="h3" delay={2000} />
+          <h4 className="h4">TECH-LOVING STUDENT</h4>
+        </div>
+        
+        <a className="buttonLink" href={pdfFile} download="Rafael Claudeniro.pdf">
+          <Button 
+            variant="contained" 
+            className="download-button"
+            startIcon={<DownloadIcon />}
+          >
+            Download CV
+          </Button>
+        </a>
       </div>
-      <a className="buttonLink" href={pdfFile} download="Rafael Claudeniro.pdf">
-        <Button variant="contained">
-          <DownloadIcon fontSize="small" /> Downwload CV
-        </Button>
-      </a>
 
-      <div className="TimelineDiv">
-      <Timeline position="alternate">
-  <TimelineItem>
-    <TimelineOppositeContent
-      sx={{ m: "auto 0" }}
-      align=""
-      variant="body2"
-      color="text.secondary"
-    >
-      Maio de 2024
-    </TimelineOppositeContent>
-    <TimelineSeparator>
-      <TimelineConnector />
-      <TimelineDot></TimelineDot>
-    </TimelineSeparator>
-    <TimelineContent>Desenvolvedor Autônomo</TimelineContent>
-  </TimelineItem>
-
-  <TimelineItem>
-    <TimelineOppositeContent
-      sx={{ m: "auto 0" }}
-      align=""
-      variant="body2"
-      color="text.secondary"
-    >
-      Janeiro de 2023
-    </TimelineOppositeContent>
-    <TimelineSeparator>
-      <TimelineConnector />
-      <TimelineDot></TimelineDot>
-    </TimelineSeparator>
-    <TimelineContent>Desenvolvedor Web</TimelineContent>
-  </TimelineItem>
-
-  <TimelineItem>
-    <TimelineOppositeContent
-      sx={{ m: "auto 0" }}
-      align=""
-      variant="body2"
-      color="text.secondary"
-    >
-      Janeiro de 2022
-    </TimelineOppositeContent>
-    <TimelineSeparator>
-      <TimelineConnector />
-      <TimelineDot></TimelineDot>
-    </TimelineSeparator>
-    <TimelineContent>Voluntário de educação</TimelineContent>
-  </TimelineItem>
-
-  <TimelineItem>
-    <TimelineOppositeContent
-      sx={{ m: "auto 0" }}
-      align=""
-      variant="body2"
-      color="text.secondary"
-    >
-      Junho de 2021
-    </TimelineOppositeContent>
-    <TimelineSeparator>
-      <TimelineConnector />
-      <TimelineDot></TimelineDot>
-    </TimelineSeparator>
-    <TimelineContent>Técnico de suporte em TI</TimelineContent>
-  </TimelineItem>
-</Timeline>
-
+      <div className={`timeline-section ${isVisible ? 'visible' : ''}`} ref={timelineRef}>
+        <h2 className="section-title">Minha Trajetória</h2>
+        <Timeline position="alternate">
+          {experiences.map((experience, index) => (
+            <TimelineItem key={index}>
+              <TimelineOppositeContent
+                sx={{ m: "auto 0" }}
+                variant="body2"
+                color="text.secondary"
+              >
+                {experience.date}
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Tooltip 
+                  title={experience.description} 
+                  arrow 
+                  TransitionComponent={Fade}
+                  TransitionProps={{ timeout: 600 }}
+                >
+                  <TimelineDot sx={{ bgcolor: experience.color }}>
+                    {experience.icon}
+                  </TimelineDot>
+                </Tooltip>
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Paper elevation={3} className="timeline-paper">
+                  <Typography variant="h6" component="h3">
+                    {experience.title}
+                  </Typography>
+                  <Typography variant="body2" className="timeline-description">
+                    {experience.description}
+                  </Typography>
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
       </div>
     </main>
   );
